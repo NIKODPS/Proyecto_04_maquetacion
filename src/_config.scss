@@ -1,0 +1,125 @@
+*{
+margin: 0;
+padding: 0;
+outline: 0;
+box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: 'montserrat';
+    src: url(./Montserrat-VariableFont_wght.ttf);
+}
+
+// variables
+$color00: white;
+$color01: black;
+$color02: rgb(20,20,20);
+$color02bis: rgb(163,100,100);
+$color03: rgb(85,36,168);
+
+$font01: 'geom';
+$font02: 'montse';
+
+$tablet: 800 px;
+$desktop: 1400 px;
+$padMin: 1.5rem;
+
+nav, header, main, footer, section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+nav{
+    height: 10dvh;;
+    background-color: rgb(167,67,67);
+}
+
+
+header, main, footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+header{
+    height: 90dvh;;
+    background-color: rgb(69,69,172);
+    justify-content: center;
+}
+
+main{
+    background-color: rgb(38, 164, 38);
+    row-gap: 3rem;
+    @media only screen and (min-width:$desktop){
+        row-gap: 6rem;;
+    }
+}
+
+footer{
+    height: 400px;
+    background-color: rgb(52,52,52);
+}
+
+h1{
+    color: $color00;
+}
+
+h2{
+    color: $color01;
+}
+
+section{
+    background-color: antiquewhite;
+    padding: $padMin 0;
+    row-gap: 2rem;
+    @media only screen and (min-width:$tablet){
+        padding: 4rem 0;
+    }
+    @media only screen and (min-width:$desktop){
+          padding: 6rem, 0;
+    }
+      
+}
+
+article{
+    background-color: aliceblue;
+
+    width: 100%;
+    
+    @media only screen and (min-width:$tablet){
+        width: 90%;    
+    }
+    @media only screen and (min-width:$desktop){
+        width: 60%;
+    } 
+}
+
+h1,h2,h3{
+    font-family: $font01;
+}
+
+p,span, a, li{
+    font-family: $font02;
+}
+
+.boton{
+    padding: 0.5rem 2rem;
+    background-color: $color03;
+    color: $color00;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1.5px solid $color03;
+    transform: 0.5s;
+    &:hover¨{
+        color: $color03;
+        background-color: $color00;
+        transform: scale(0.9);
+    }
+    &:active{
+        transform: scale(.85);
+    }
+}
