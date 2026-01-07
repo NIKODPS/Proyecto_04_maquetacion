@@ -7,26 +7,35 @@ box-sizing: border-box;
 
 
 @font-face {
-    font-family: 'montserrat';
-    src: url(./Montserrat-VariableFont_wght.ttf);
+    font-family: 'geom';
+    src: url(./fonts/Geom-Italic-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: 'montserat';
+    src: url(./fonts/Montserrat-VariableFont_wght.ttf);
 }
 
 // variables
 $color00: white;
-$color01: black;
-$color02: rgb(20,20,20);
+$color01: rgb(20,20,20);
+$color02: rgb(156, 32, 96);
 $color02bis: rgb(163,100,100);
 $color03: rgb(85,36,168);
+$color99: black;
 
 $font01: 'geom';
 $font02: 'montse';
 
 $tablet: 800 px;
-$desktop: 1400 px;
+$desktop: 1200 px;
 $padMin: 1.5rem;
 
 nav, header, main, footer, section{
     width: 100%;
+}
+
+header, main, footer, section{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,14 +44,6 @@ nav, header, main, footer, section{
 nav{
     height: 10dvh;;
     background-color: rgb(167,67,67);
-}
-
-
-header, main, footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
 }
 
 header{
@@ -54,6 +55,10 @@ header{
 main{
     background-color: rgb(38, 164, 38);
     row-gap: 3rem;
+    @media only screen and (min-width:$tablet){
+        row-gap: 4rem;
+    }
+
     @media only screen and (min-width:$desktop){
         row-gap: 6rem;;
     }
@@ -64,13 +69,6 @@ footer{
     background-color: rgb(52,52,52);
 }
 
-h1{
-    color: $color00;
-}
-
-h2{
-    color: $color01;
-}
 
 section{
     background-color: antiquewhite;
@@ -80,15 +78,15 @@ section{
         padding: 4rem 0;
     }
     @media only screen and (min-width:$desktop){
-          padding: 6rem, 0;
+          padding: 6rem 0;
     }
       
 }
 
 article{
     background-color: aliceblue;
-
     width: 100%;
+    padding: $padMin;
     
     @media only screen and (min-width:$tablet){
         width: 90%;    
@@ -102,6 +100,15 @@ h1,h2,h3{
     font-family: $font01;
 }
 
+h1{
+    color: $color00;
+}
+
+h2{
+    color: $color01;
+}
+
+
 p,span, a, li{
     font-family: $font02;
 }
@@ -113,7 +120,8 @@ p,span, a, li{
     text-decoration: none;
     border-radius: 3px;
     border: 1.5px solid $color03;
-    transform: 0.5s;
+    transition: 0.5s;
+    letter-spacing: 2px;
     &:hover¨{
         color: $color03;
         background-color: $color00;

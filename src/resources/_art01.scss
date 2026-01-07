@@ -24,10 +24,10 @@ art01{
     p{
         width: 100%;
         @media only screen and (min-width:c.$tablet){
-        width: 90; 
+        width: 80 
     }
     @media only screen and (min-width:c.$desktop){
-         width: 60;
+         width: 70;
     } 
     }
 }
