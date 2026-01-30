@@ -1,35 +1,39 @@
 *{
-margin: 0;
-padding: 0;
-outline: 0;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+    outline: 0;
+    box-sizing: border-box;
 }
-
 
 @font-face {
     font-family: 'geom';
-    src: url(./fonts/Geom-Italic-VariableFont_wght.ttf);
+    src: url('./Geom-VariableFont_wght.ttf');
 }
-
 @font-face {
-    font-family: 'montserat';
-    src: url(./fonts/Montserrat-VariableFont_wght.ttf);
+    font-family: 'notosans';
+    src: url('./NotoSans_Condensed-Regular.ttf');
 }
 
 // variables
 $color00: white;
-$color01: rgb(20,20,20);
+$color00svg: invert(100%) sepia(100%) saturate(0%) hue-rotate(159deg) brightness(104%) contrast(104%);
+$color00bis: #ebebeb;
+$color01: #141414;
+$color01bis: #14141446;
+$color01bis2: #c3c3c3;
 $color02: rgb(156, 32, 96);
-$color02bis: rgb(163,100,100);
-$color03: rgb(85,36,168);
-$color99: black;
+$color02bis: rgb(163, 100, 130);
+$color03: #5524a8;
+$color03svg: invert(13%) sepia(70%) saturate(4377%) hue-rotate(260deg) brightness(93%) contrast(94%);
 
-$font01: 'geom';
-$font02: 'montse';
+$font02: 'geom';
+$font01: 'notosans';
 
-$tablet: 800 px;
-$desktop: 1200 px;
+$tablet: 800px;
+$desktop: 1200px;
+
 $padMin: 1.5rem;
+
 
 nav, header, main, footer, section{
     width: 100%;
@@ -41,76 +45,56 @@ header, main, footer, section{
     align-items: center;
     justify-content: flex-start;
 }
-nav{
-    height: 10dvh;;
-    background-color: rgb(167,67,67);
-}
 
+nav{
+    height: 10dvh;
+    background-color: rgb(168, 67, 67);
+}
 header{
-    height: 90dvh;;
-    background-color: rgb(69,69,172);
+    height: 90dvh;
+    background-color: rgb(69, 69, 172);
     justify-content: center;
 }
-
-main{
-    background-color: rgb(38, 164, 38);
+main{    
+    // background-color: rgb(38, 164, 38);
     row-gap: 3rem;
     @media only screen and (min-width:$tablet){
         row-gap: 4rem;
     }
-
     @media only screen and (min-width:$desktop){
-        row-gap: 6rem;;
+        row-gap: 6rem;
     }
 }
-
 footer{
     height: 400px;
-    background-color: rgb(52,52,52);
+    background-color: rgb(52, 52, 52);
 }
 
-
 section{
-    background-color: antiquewhite;
+    // background-color: antiquewhite;    
     padding: $padMin 0;
     row-gap: 2rem;
     @media only screen and (min-width:$tablet){
         padding: 4rem 0;
     }
     @media only screen and (min-width:$desktop){
-          padding: 6rem 0;
+        padding: 6rem 0;
     }
-      
 }
 
-article{
-    background-color: aliceblue;
-    width: 100%;
-    padding: $padMin;
-    
-    @media only screen and (min-width:$tablet){
-        width: 90%;    
-    }
-    @media only screen and (min-width:$desktop){
-        width: 60%;
-    } 
-}
 
-h1,h2,h3{
+h1, h2, h3, h4{
     font-family: $font01;
+}
+p, span, a, li, label{
+    font-family: $font02;
 }
 
 h1{
     color: $color00;
 }
-
 h2{
     color: $color01;
-}
-
-
-p,span, a, li{
-    font-family: $font02;
 }
 
 .boton{
@@ -122,12 +106,15 @@ p,span, a, li{
     border: 1.5px solid $color03;
     transition: 0.5s;
     letter-spacing: 2px;
-    &:hover¨{
+    &:hover{
         color: $color03;
         background-color: $color00;
-        transform: scale(0.9);
+        transform: scale(.9);
     }
     &:active{
         transform: scale(.85);
     }
+
 }
+
+

@@ -1,0 +1,51 @@
+@use 'config' as c;
+
+.art03{
+    width: 100%;
+    padding: c.$padMin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 2rem;    
+    @media only screen and (min-width:c.$tablet){
+        row-gap: 2rem;
+    }
+    @media only screen and (min-width:c.$desktop){
+        width: 60%;
+        row-gap: 4rem;
+    }
+    >div{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+        @media only screen and (min-width:c.$tablet){
+            gap: 2rem;
+        }
+        .ficha{
+            // background-color: aqua;
+            width: 47%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+            @media only screen and (min-width:c.$tablet){
+                width: 31%;
+            }
+            img{
+               width: 30px;
+               @media only screen and (min-width:c.$tablet){
+                    width: 50px;
+                }
+            }
+            p{
+                font-size: clamp(0.7rem, 3vw, 1rem);
+                color: c.$color01;
+            }
+        }
+    }
+}
+
