@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{asunto}</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#ebebeb;">
+  <!-- Preheader (texto de vista previa en clientes de email) -->
+  <div style="display:none; font-size:1px; color:#ebebeb; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden;">
+    {aviso}
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ebebeb; padding:24px 0;">
+    <tr>
+      <td align="center" style="padding:0 16px;">
+
+        <!-- Contenedor -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
+          style="width:100%; max-width:600px; background-color:#ffffff;
+                 border-radius:14px; overflow:hidden;
+                 box-shadow:0 8px 22px rgba(16,24,40,0.08);">
+
+          <!-- Barra superior corporativa (color02) -->
+          <tr>
+            <td style="height:6px; line-height:6px; background-color:rgb(156, 32, 96);">&nbsp;</td>
+          </tr>
+
+          <!-- Header (color03) -->
+          <tr>
+            <td style="padding:22px 24px; background-color:#5524a8;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="left" style="vertical-align:middle;">
+                    <a href="'.$urlWeb.'" target="_blank" style="text-decoration:none; border:0;">
+                      <img src="cid:reflogotipo" width="140"
+                        style="display:block; border:0; outline:none; text-decoration:none; height:auto;"
+                        alt="{web}">
+                    </a>
+                  </td>
+
+                  <td align="right" style="vertical-align:middle; font-family:Arial, Helvetica, sans-serif; color:#ffffff; font-size:12px; line-height:18px;">
+                    <span style="opacity:0.9;">Notificación automática</span><br>
+                    <span style="font-weight:800;">{asunto}</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Título -->
+          <tr>
+            <td style="padding:26px 24px 10px 24px; font-family:Arial, Helvetica, sans-serif; color:#141414;">
+              <div style="font-size:14px; line-height:20px; color:rgba(20,20,20,0.65);">
+                {explicacion}
+              </div>
+
+              <h1 style="margin:10px 0 0 0; font-size:22px; line-height:28px; font-weight:800; letter-spacing:-0.2px; color:#141414;">
+                {contexto} <span style="color:rgb(156, 32, 96);">{nombre}</span>
+              </h1>
+
+              <div style="margin-top:10px;">
+                <span style="display:inline-block; background-color:rgb(163, 100, 130); color:#ffffff;
+                             font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:12px;
+                             padding:8px 10px; border-radius:999px; font-weight:800;">
+                  Formulario web
+                </span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Texto -->
+          <tr>
+            <td style="padding:0 24px 18px 24px; font-family:Arial, Helvetica, sans-serif; color:rgba(20,20,20,0.65); font-size:14px; line-height:22px;">
+              {razon}              <a href="https://profe.webda.eus/proyecto05/" target="_blank"
+                 style="color:#5524a8; text-decoration:none; font-weight:800;">
+                profe.webda.eus/proyecto05
+              </a>
+            </td>
+          </tr>
+
+          <!-- Card datos -->
+          <tr>
+            <td style="padding:0 24px 24px 24px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                     style="border:1px solid #c3c3c3; border-radius:12px; overflow:hidden;">
+
+                <tr>
+                  <td width="160" style="background-color:#ebebeb; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                                         font-size:13px; line-height:18px; color:#141414; font-weight:800;
+                                         border-bottom:1px solid #c3c3c3;">
+                    Nombre
+                  </td>
+                  <td style="background-color:#ffffff; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                             font-size:13px; line-height:18px; color:#141414;
+                             border-bottom:1px solid #c3c3c3;">
+                    {nombre}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="160" style="background-color:#ebebeb; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                                         font-size:13px; line-height:18px; color:#141414; font-weight:800;
+                                         border-bottom:1px solid #c3c3c3;">
+                    Teléfono
+                  </td>
+                  <td style="background-color:#ffffff; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                             font-size:13px; line-height:18px; color:#141414;
+                             border-bottom:1px solid #c3c3c3;">
+                    {telefono}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="160" style="background-color:#ebebeb; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                                         font-size:13px; line-height:18px; color:#141414; font-weight:800;
+                                         border-bottom:1px solid #c3c3c3;">
+                    Email
+                  </td>
+                  <td style="background-color:#ffffff; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                             font-size:13px; line-height:18px; color:#141414;
+                             border-bottom:1px solid #c3c3c3;">
+                    {email}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="160" style="background-color:#ebebeb; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                                         font-size:13px; line-height:18px; color:#141414; font-weight:800;
+                                         vertical-align:top;">
+                    Consulta
+                  </td>
+                  <td style="background-color:#ffffff; padding:12px 14px; font-family:Arial, Helvetica, sans-serif;
+                             font-size:13px; line-height:20px; color:#141414;">
+                    {mensaje}
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          <tr>
+            <td style="padding:0 24px 26px 24px; font-family:Arial, Helvetica, sans-serif;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="left">
+                    <a href="{url}" target="_blank"
+                       style="display:inline-block; background-color:rgb(156, 32, 96); color:#ffffff;
+                              text-decoration:none; font-weight:900; font-size:13px; line-height:16px;
+                              padding:12px 16px; border-radius:10px;">
+                      Ver web
+                    </a>
+                  </td>
+                  <td width="12"></td>
+                  <td align="left" style="font-size:12px; color:rgba(20,20,20,0.65); line-height:18px;">
+                    {responder}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:18px 24px; background-color:#ebebeb; border-top:1px solid #c3c3c3; font-family:Arial, Helvetica, sans-serif;">
+              <div style="font-size:13px; line-height:18px; color:#141414; font-weight:900;">
+                Un saludo,
+              </div>
+              <div style="font-size:13px; line-height:20px; color:rgba(20,20,20,0.65);">
+                Equipo de Panadería Aginaga
+              </div>
+              <div style="margin-top:10px; font-size:11px; line-height:16px; color:rgba(20,20,20,0.55);">
+                Este correo se ha generado automáticamente. Si no esperabas este mensaje, puedes ignorarlo.
+              </div>
+            </td>
+          </tr>
+
+        </table>
+
+        <div style="height:18px; line-height:18px;">&nbsp;</div>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
