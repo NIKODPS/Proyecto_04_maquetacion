@@ -11,6 +11,11 @@ export default defineConfig({
         changeOrigin: true,
       },
       // Redirección a /gracias.php debe pasar por PHP, no servirse en estático por Vite
+      '/index.php': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+      },
+      // Redirección a /gracias.php debe pasar por PHP, no servirse en estático por Vite
       '/gracias.php': {
         target: 'http://localhost:8000',
         changeOrigin: true,

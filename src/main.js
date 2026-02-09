@@ -1,4 +1,4 @@
-import './style.scss'
+import './main.scss'
 
 import './resources/_artForm01'
 

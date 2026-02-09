@@ -14,12 +14,19 @@ include '../config/helpers.php';
 // aquí voy a gestionar lo que reciba del formulario
 
 // 1 recibir los datos del formulario a través de POST y meto los value en nuevas variables que usaré aquí
+// Recoger el resto de valores del form
+$nombre = $_POST['nombre'];
+$telefono = $_POST['telefono'];
+$email = $_POST['email'];
+$mensaje = $_POST['mensaje'];
+$ip = $_SERVER['REMOTE_ADDR'];
+$fecha = date('Y-m-d H:i:s');
 
 
 if(comprobarVacio($_POST['terminos'])){
     // Como viene vacía, redirijo a la página de contacto
     // echo "Hay un error pues no ha aceptado las condiciones de privacidad";
-    header('location:/?error=condiciones');
+    header("location:/index.php?error=aceptar&campo=condiciones&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die;
 }else{
     $terminos = $_POST['terminos'];
@@ -30,7 +37,7 @@ if(comprobarVacio($_POST['terminos'])){
 // if(empty($_POST['terminos'])){
 //     // Como viene vacía, redirijo a la página de contacto
 //     // echo "Hay un error pues no ha aceptado las condiciones de privacidad";
-//     header('location:/?error=condiciones');
+//     header('location:/index.php?error=condiciones');
 //     die;
 // }else{
 //     $terminos = $_POST['terminos'];
@@ -42,25 +49,20 @@ $respUser = $_POST['respUser'];
 $respSystem = $_POST['respSystem'];
 // que venga vacío
 if(!isset($respUser)){
-    header('location:/?error=captchaVacio');
+    header("location:/index.php?error=vacio&campo=captcha&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die;  
 }
 // que la respuesta sea errónea
 if($respUser != $respSystem){
-    header('location:/?error=captchaError');
+    header("location:/index.php?error=error&campo=captcha&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die; 
 }
 
 
 
-// Recoger el resto de valores del form
-$nombre = $_POST['nombre'];
-$telefono = $_POST['telefono'];
-$email = $_POST['email'];
-$mensaje = $_POST['mensaje'];
 
-$ip = $_SERVER['REMOTE_ADDR'];
-$fecha = date('Y-m-d H:i:s');
+
+
 
 // echo $ip . "<br>";
 // echo $fecha;
@@ -73,41 +75,41 @@ $fecha = date('Y-m-d H:i:s');
 // 2 comprobar que los datos son correctos.
 // que nombre venga vacío, salimos
 if(comprobarVacio($nombre)){
-    header('location:/?error=nombreVacio');
+    header("location:/index.php?error=vacio&campo=nombre&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die;
 }
 // // que nombre sea menor de 3 y mayor de 40, salimos
 if(comprobarCaracteres($nombre, 3, 40)){
-    header('location:/?error=nombreCaracteres');
+    header('location:/index.php?error=caracteres&campo=nombre&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje"');
     die; 
 }
 
 // que teléfono venga vacío, salimos
 if(comprobarVacio($telefono)){
-    header('location:/?error=telefonoVacio');
+    header("location:/index.php?error=vacio&campo=telefono&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die; 
 }
 
 // que correo venga vacío, salimos
 if(comprobarVacio($email)){
-    header('location:/?error=emailVacio');
+    header("location:/index.php?error=vacio&campo=email&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die; 
 }
 
 // // que correo no tenga la forma de un correo, salimos (expresión regular)
 if(!comprobarEmailSintaxis($email)){
-    header('location:/?error=emailSintaxis');
+    header("location:/index.php?error=sintaxis&campo=email&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die;
 }
 
 // que mensaje venga vacío, salimos
 if(comprobarVacio($mensaje)){
-    header('location:/?error=mensajeVacio');
+    header("location:/index.php?error=vacio&campo=mensaje&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die; 
 }
 // // que mensaje sea menor de 4 y mayor de 200, salimos
 if(comprobarCaracteres($mensaje, 4, 200)){
-    header('location:/?error=mensajeCaracteres');
+    header("location:/index.php?error=caracteres&campo=mensaje&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje");
     die; 
 }
 
@@ -214,22 +216,11 @@ if($con === false){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// 5 redirigir a la página gracias
+// 5 redirigir a la página index para mostrar un mensaje de envío ok, en vez del formulario
 // urlencode evita romper la cabecera si el nombre lleva espacios o acentos
 
 $nombreUrl = urlencode($nombre);
-header("location:/gracias.php?nom=$nombreUrl");
+header("location:/index.php?envio=ok&nombre=$nombreUrl#form");
 die;
 
 

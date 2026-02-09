@@ -34,6 +34,11 @@ $desktop: 1200px;
 
 $padMin: 1.5rem;
 
+.error{
+    color: red;
+    font-style: italic;
+}
+
 
 nav, header, main, footer, section{
     width: 100%;
