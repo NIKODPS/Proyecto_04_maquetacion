@@ -20,9 +20,9 @@
 
             <!-- contacto -->
       <section>
-        <h2>(h2) Contacto</h2>
+        <h2 id="artForm01">(h2) Artículo de form01 envío por POST y GET</h2>
         
-        <article class="artForm01" id="form">
+        <article class="artForm01">
 
           <?php
           // comprobar si hay variables get en la URL
@@ -103,6 +103,93 @@
               <?php
               }
               ?>
+
+            </div>
+            <div class="contenedor-info">
+              <ul>
+                <li>
+                  <a href="tel:+34943123123" target="_blank">
+                    <img src="./src/resources/tel.svg" alt="" title="">
+                    <span>943 123 123</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:aranaz@webda.eus" target="_blank">
+                    <img src="./src/resources/mail.svg" alt="" title="">
+                    <span>aranaz@webda.eus</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/628749350" target="_blank">
+                    <img src="./src/resources/wa.svg" alt="" title="">
+                    <span>628 749 350</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://maps.app.goo.gl/Kh7rZM3WF1chSZSj7" target="_blank">
+                    <img src="./src/resources/map.svg" alt="" title="">
+                    <span>C/ Juan Fermín, Juan F. Gilisagasti Kalea, 4, 1º, 20018 Donostia / San Sebastián, Gipuzkoa</span>
+                  </a>
+                </li>
+              </ul>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1886.901188915529!2d-2.0047191655624914!3d43.29790730427824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51b013f0513629%3A0x57e4ff3311f619d9!2s%C3%81rea%20Escuela%20de%20Dise%C3%B1o%20y%20Nuevas%20Tecnolog%C3%ADas!5e1!3m2!1ses!2ses!4v1768584957042!5m2!1ses!2ses" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <section>
+        <h2>(h2) Artículo de form02 envío XMLHTTPRequest (Ajax)</h2>
+        
+        <article class="artForm02">          
+
+          <h3>(h3) formulario y datos</h3>
+          <div>
+            <div class="contenedor-form">
+              <img src="./src/resources/mail.svg" alt="">
+                
+              <h3 id="h3Form02"></h3>
+
+              <form id="idForAjax">
+                
+                <p class="error" id="errorForm02"></p>
+
+                <!-- nombre -->
+                <label for="nombreAjax">Nombre *</label>
+                <input type="text" id="nombreAjax" name="nombre" placeholder="Escribe aquí tu nombre *">
+
+                <!-- teléfono -->
+                <label for="telefonoAjax">Teléfono *</label>
+                <input type="tel" id="telefonoAjax" name="telefono" placeholder="Escribe aquí tu teléfono *">
+
+                <!-- Correo -->
+                <label for="emailAjax">Correo Electrónico</label>
+                <input type="email" id="emailAjax" name="email" placeholder="Escribe aquí tu correo electrónico">
+
+                <!-- Mensaje -->
+                <label for="mensajeAjax">Escribe tu mensaje</label>
+                <textarea name="mensaje" id="mensajeAjax" placeholder="Escribe aquí tu mensaje"></textarea>
+
+                <!-- términos -->
+                <div class="horizontal">
+                  <label for="terminosAjax">Aceptar términos y condiciones de privacidad</label>
+                  <input type="checkbox" name="terminos" id="terminosAjax">
+                </div>
+                
+
+                <!-- captcha -->
+                <label for="respuesta">Resuelve</label>
+                <div class="horizontal">
+                  <span id="num1ajax">3</span>
+                  <span id="operadorajax">+</span>
+                  <span id="num2ajax">7</span>
+                  <input type="text" name="respUser" id="respuestaajax" placeholder="Respuesta" autocomplete="off">
+                  <input type="hidden" name="respSystem" id="respSystemajax" value="">
+                </div>
+
+                <input type="submit" class="boton" value="Enviar" id="botonEnviarAjax">
+              </form>              
 
             </div>
             <div class="contenedor-info">
