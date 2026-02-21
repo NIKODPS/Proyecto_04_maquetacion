@@ -46,7 +46,7 @@ EMAIL_ADMIN={correo destinastario del admin de la web}
 
 ```
 
-## 5. Arrancar servidor
+## 5. Arrancar servidor y dev
 
     - Para poder usar este proyecto en dev mode, debes levantar un server local en el puerto 8000 (tiene proxy al 3000).
 
@@ -72,6 +72,18 @@ npm run build
 ```
 
 YTa sólo quedará subir a producción los ficheros y carpetas correspondientes.
+
+los de la imagen y el .env
+
+recordad cambiar el valor para producción de la variable de dev a pro antes de subir dicho archivo a la raiz, junto al index.php
+
+```bash
+APP_ENV=dev
+# APP_ENV=pro
+```
+
+Ficheros que hay que subir. Nota: junto al index, subir el .env con la variable cambiada
+![alt text](/readme/image3.png)
 
 Enjoy
 

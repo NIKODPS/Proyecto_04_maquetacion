@@ -1,10 +1,28 @@
+<?php
+// Cargamos .env para poder leer APP_ENV en local (dev/prod)
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require __DIR__ . '/vendor/autoload.php';
+    if (class_exists('Dotenv\\Dotenv')) {
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->safeLoad();
+    }
+}
+
+require __DIR__ . '/config/helpers.php';
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="<?php echo vite_public_url('vite.svg'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>proyecto-04-maquetacion</title>
+    <?php
+      // Inyecta CSS/JS desde Vite (manifest en produccion o /src en desarrollo)
+      vite_assets();
+    ?>
   </head>
   <body>
     
@@ -18,7 +36,7 @@
 
     <main>
 
-            <!-- contacto -->
+      <!-- contacto -->
       <section>
         <h2 id="artForm01">(h2) Artículo de form01 envío por POST y GET</h2>
         
@@ -46,11 +64,11 @@
           <h3>(h3) formulario y datos</h3>
           <div>
             <div class="contenedor-form">
-              <img src="./src/resources/mail.svg" alt="">
+              <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="">
               <?php
               if(!isset($_GET['envio'])){              
               ?>
-              <form action="/App/artForm01.php" method="post" id="idForm">
+              <form action="App/artForm01.php" method="post" id="idForm">
 
                 <?php
                 if(isset($error)){   
@@ -109,25 +127,25 @@
               <ul>
                 <li>
                   <a href="tel:+34943123123" target="_blank">
-                    <img src="./src/resources/tel.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/tel.svg'); ?>" alt="" title="">
                     <span>943 123 123</span>
                   </a>
                 </li>
                 <li>
                   <a href="mailto:aranaz@webda.eus" target="_blank">
-                    <img src="./src/resources/mail.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="" title="">
                     <span>aranaz@webda.eus</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://wa.me/628749350" target="_blank">
-                    <img src="./src/resources/wa.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/wa.svg'); ?>" alt="" title="">
                     <span>628 749 350</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://maps.app.goo.gl/Kh7rZM3WF1chSZSj7" target="_blank">
-                    <img src="./src/resources/map.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/map.svg'); ?>" alt="" title="">
                     <span>C/ Juan Fermín, Juan F. Gilisagasti Kalea, 4, 1º, 20018 Donostia / San Sebastián, Gipuzkoa</span>
                   </a>
                 </li>
@@ -147,9 +165,17 @@
           <h3>(h3) formulario y datos</h3>
           <div>
             <div class="contenedor-form">
-              <img src="./src/resources/mail.svg" alt="">
-                
-              <h3 id="h3Form02"></h3>
+              
+              <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="">
+                             
+
+              <!-- MODAL QUE SALE CUANDO SE ENVÍA EL FORM CON ÉXITO -->
+              <div id="modal_envio">
+                <!-- nuestro modal con html y css -->
+                <h3 id="h3_modal_envio">Lorem ipsum dolor sit amet.</h3>
+                <p id="p_modal_envio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem quia porro obcaecati accusamus laborum fuga totam assumenda fugiat sint pariatur!</p>
+                <div class="boton" id="boton_modal_envio">Escribir otra consulta</div>
+              </div>
 
               <form id="idForAjax">
                 
@@ -181,40 +207,101 @@
                 <!-- captcha -->
                 <label for="respuesta">Resuelve</label>
                 <div class="horizontal">
-                  <span id="num1ajax">3</span>
-                  <span id="operadorajax">+</span>
-                  <span id="num2ajax">7</span>
+                  <span id="num1ajax"></span>
+                  <span id="operadorajax"></span>
+                  <span id="num2ajax"></span>
                   <input type="text" name="respUser" id="respuestaajax" placeholder="Respuesta" autocomplete="off">
                   <input type="hidden" name="respSystem" id="respSystemajax" value="">
                 </div>
 
                 <input type="submit" class="boton" value="Enviar" id="botonEnviarAjax">
-              </form>              
+              </form>
+              
+              <div class="moduleLoader01" id="moduleLoader01">
+                <!-- <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                  <circle fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48"/>
+                  <line fill="none" stroke-linecap="round" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="85" y2="50.5">
+                    <animateTransform 
+                        attributeName="transform" 
+                        dur="2s"
+                        type="rotate"
+                        from="0 50 50"
+                        to="360 50 50"
+                        repeatCount="indefinite" />
+                  </line>
+                  <line fill="none" stroke-linecap="round" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="49.5" y2="74">
+                    <animateTransform 
+                        attributeName="transform" 
+                        dur="15s"
+                        type="rotate"
+                        from="0 50 50"
+                        to="360 50 50"
+                        repeatCount="indefinite" />
+                  </line>
+                </svg> -->
+                <svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                  <path fill="#000000" d="M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3
+                    c-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z">
+                        <animateTransform 
+                          attributeName="transform" 
+                          attributeType="XML" 
+                          type="rotate"
+                          dur="2s" 
+                          from="0 50 50"
+                          to="360 50 50" 
+                          repeatCount="indefinite" />
+                    </path>
+                  <path fill="#000000" d="M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7
+                    c-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z">
+                        <animateTransform 
+                          attributeName="transform" 
+                          attributeType="XML" 
+                          type="rotate"
+                          dur="1s" 
+                          from="0 50 50"
+                          to="-360 50 50" 
+                          repeatCount="indefinite" />
+                    </path>
+                  <path fill="#000000" d="M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5
+                    L82,35.7z">
+                        <animateTransform 
+                          attributeName="transform" 
+                          attributeType="XML" 
+                          type="rotate"
+                          dur="2s" 
+                          from="0 50 50"
+                          to="360 50 50" 
+                          repeatCount="indefinite" />
+                    </path>
+                  </svg>
+              </div>
 
             </div>
             <div class="contenedor-info">
               <ul>
                 <li>
                   <a href="tel:+34943123123" target="_blank">
-                    <img src="./src/resources/tel.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/tel.svg'); ?>" alt="" title="">
                     <span>943 123 123</span>
                   </a>
                 </li>
                 <li>
                   <a href="mailto:aranaz@webda.eus" target="_blank">
-                    <img src="./src/resources/mail.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/mail.svg'); ?>" alt="" title="">
                     <span>aranaz@webda.eus</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://wa.me/628749350" target="_blank">
-                    <img src="./src/resources/wa.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/wa.svg'); ?>" alt="" title="">
                     <span>628 749 350</span>
                   </a>
                 </li>
                 <li>
                   <a href="https://maps.app.goo.gl/Kh7rZM3WF1chSZSj7" target="_blank">
-                    <img src="./src/resources/map.svg" alt="" title="">
+                    <img src="<?php echo vite_public_url('resources/map.svg'); ?>" alt="" title="">
                     <span>C/ Juan Fermín, Juan F. Gilisagasti Kalea, 4, 1º, 20018 Donostia / San Sebastián, Gipuzkoa</span>
                   </a>
                 </li>
@@ -313,23 +400,23 @@
               <h4>Atención personalizada</h4>
               <ul>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
               </ul>
@@ -339,23 +426,23 @@
               <h4>Los mejores ingredientes</h4>
               <ul>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/checkmark-circle.svg" alt="" title="">
+                  <img src="<?php echo vite_public_url('resources/checkmark-circle.svg'); ?>" alt="" title="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
               </ul>
@@ -542,10 +629,7 @@
 
     </footer>
 
-
-    
-
-
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
+
+

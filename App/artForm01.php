@@ -26,7 +26,7 @@ $fecha = date('Y-m-d H:i:s');
 if(comprobarVacio($_POST['terminos'])){
     // Como viene vacía, redirijo a la página de contacto
     // echo "Hay un error pues no ha aceptado las condiciones de privacidad";
-    header("location:/index.php?error=aceptar&campo=condiciones&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=aceptar&campo=condiciones&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }else{
     $terminos = $_POST['terminos'];
@@ -37,7 +37,7 @@ if(comprobarVacio($_POST['terminos'])){
 // if(empty($_POST['terminos'])){
 //     // Como viene vacía, redirijo a la página de contacto
 //     // echo "Hay un error pues no ha aceptado las condiciones de privacidad";
-//     header('location:/index.php?error=condiciones');
+//     header('location:../index.php?error=condiciones');
 //     die;
 // }else{
 //     $terminos = $_POST['terminos'];
@@ -49,12 +49,12 @@ $respUser = $_POST['respUser'];
 $respSystem = $_POST['respSystem'];
 // que venga vacío
 if(!isset($respUser)){
-    header("location:/index.php?error=vacio&campo=captcha&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=captcha&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;  
 }
 // que la respuesta sea errónea
 if($respUser != $respSystem){
-    header("location:/index.php?error=error&campo=captcha&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=error&campo=captcha&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die; 
 }
 
@@ -75,41 +75,41 @@ if($respUser != $respSystem){
 // 2 comprobar que los datos son correctos.
 // que nombre venga vacío, salimos
 if(comprobarVacio($nombre)){
-    header("location:/index.php?error=vacio&campo=nombre&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=nombre&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 // // que nombre sea menor de 3 y mayor de 40, salimos
 if(comprobarCaracteres($nombre, 3, 40)){
-    header("location:/index.php?error=caracteres&campo=nombre&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=caracteres&campo=nombre&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die; 
 }
 
 // que teléfono venga vacío, salimos
 if(comprobarVacio($telefono)){
-    header("location:/index.php?error=vacio&campo=telefono&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=telefono&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die; 
 }
 
 // que correo venga vacío, salimos
 if(comprobarVacio($email)){
-    header("location:/index.php?error=vacio&campo=email&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=email&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die; 
 }
 
 // // que correo no tenga la forma de un correo, salimos (expresión regular)
 if(!comprobarEmailSintaxis($email)){
-    header("location:/index.php?error=sintaxis&campo=email&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=sintaxis&campo=email&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 
 // que mensaje venga vacío, salimos
 if(comprobarVacio($mensaje)){
-    header("location:/index.php?error=vacio&campo=mensaje&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=mensaje&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die; 
 }
 // // que mensaje sea menor de 4 y mayor de 200, salimos
 if(comprobarCaracteres($mensaje, 4, 200)){
-    header("location:/index.php?error=caracteres&campo=mensaje&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=caracteres&campo=mensaje&nombre=$nombre&tel=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die; 
 }
 
@@ -220,8 +220,9 @@ if($con === false){
 // urlencode evita romper la cabecera si el nombre lleva espacios o acentos
 
 $nombreUrl = urlencode($nombre);
-header("location:/index.php?envio=ok&nombre=$nombreUrl#artForm01");
+header("location:../index.php?envio=ok&nombre=$nombreUrl#artForm01");
 die;
 
 
 ?>
+
